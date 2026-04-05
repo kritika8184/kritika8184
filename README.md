@@ -1,3 +1,3 @@
 ## 🚀 My Stack
 
-![Heatmap Text](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/heatmap.svg)
+![Grid Animation](https://raw.githubusercontent.com/kritika8184/kritika8184/output/grid.svg)

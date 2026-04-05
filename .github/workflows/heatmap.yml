@@ -13,33 +13,54 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Generate SVG
+      - name: Generate Grid SVG
         run: |
           mkdir -p dist
-          cat << 'EOF' > dist/heatmap.svg
-          <svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+          cat << 'EOF' > dist/grid.svg
+          <svg width="900" height="200" xmlns="http://www.w3.org/2000/svg">
             <style>
-              .text {
-                font-family: monospace;
-                font-size: 60px;
-                fill: #00ff88;
+              .cell {
+                width: 12px;
+                height: 12px;
+                fill: #39d353;
+                opacity: 0;
+                animation: fade 6s infinite;
+              }
+
+              @keyframes fade {
+                0% { opacity: 0; }
+                20% { opacity: 1; }
+                80% { opacity: 1; }
+                100% { opacity: 0; }
               }
             </style>
 
-            <text x="50" y="100" class="text">
-              <animate attributeName="opacity" values="1;0;1" dur="6s" repeatCount="indefinite"/>
-              KRITIKA
-            </text>
+            <!-- KRITIKA -->
+            <g>
+              <rect x="10" y="20" class="cell"/>
+              <rect x="25" y="20" class="cell"/>
+              <rect x="40" y="20" class="cell"/>
+              <rect x="55" y="20" class="cell"/>
+              <rect x="70" y="20" class="cell"/>
+            </g>
 
-            <text x="50" y="100" class="text">
-              <animate attributeName="opacity" values="0;1;0" dur="6s" begin="2s" repeatCount="indefinite"/>
-              FULLSTACK
-            </text>
+            <!-- FULLSTACK -->
+            <g>
+              <rect x="10" y="60" class="cell" style="animation-delay:2s"/>
+              <rect x="25" y="60" class="cell" style="animation-delay:2s"/>
+              <rect x="40" y="60" class="cell" style="animation-delay:2s"/>
+              <rect x="55" y="60" class="cell" style="animation-delay:2s"/>
+              <rect x="70" y="60" class="cell" style="animation-delay:2s"/>
+            </g>
 
-            <text x="50" y="100" class="text">
-              <animate attributeName="opacity" values="0;1;0" dur="6s" begin="4s" repeatCount="indefinite"/>
-              MERN
-            </text>
+            <!-- MERN -->
+            <g>
+              <rect x="10" y="100" class="cell" style="animation-delay:4s"/>
+              <rect x="25" y="100" class="cell" style="animation-delay:4s"/>
+              <rect x="40" y="100" class="cell" style="animation-delay:4s"/>
+              <rect x="55" y="100" class="cell" style="animation-delay:4s"/>
+            </g>
+
           </svg>
           EOF
 
