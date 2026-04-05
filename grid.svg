@@ -1,0 +1,64 @@
+<svg width="900" height="200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .cell {
+      width: 10px;
+      height: 10px;
+      fill: #39d353;
+    }
+    .word {
+      opacity: 0;
+      animation: show 9s infinite;
+    }
+
+    .word:nth-child(1) { animation-delay: 0s; }
+    .word:nth-child(2) { animation-delay: 3s; }
+    .word:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+
+  <!-- KRITIKA -->
+  <g class="word">
+    <!-- K -->
+    <rect x="10" y="20" width="10" height="10" class="cell"/>
+    <rect x="10" y="30" width="10" height="10" class="cell"/>
+    <rect x="20" y="30" width="10" height="10" class="cell"/>
+    <rect x="30" y="20" width="10" height="10" class="cell"/>
+    <rect x="20" y="40" width="10" height="10" class="cell"/>
+    <rect x="30" y="50" width="10" height="10" class="cell"/>
+
+
+  <!-- R -->
+  <rect x="50" y="20" width="10" height="10" class="cell"/>
+  <rect x="50" y="30" width="10" height="10" class="cell"/>
+  <rect x="60" y="20" width="10" height="10" class="cell"/>
+  <rect x="60" y="30" width="10" height="10" class="cell"/>
+  <rect x="50" y="40" width="10" height="10" class="cell"/>
+  <rect x="60" y="50" width="10" height="10" class="cell"/>
+</g>
+
+<!-- FULLSTACK -->
+<g class="word">
+ <rect x="10" y="20" width="10" height="10" class="cell"/>
+ <rect x="20" y="20" width="10" height="10" class="cell"/>
+ <rect x="30" y="20" width="10" height="10" class="cell"/>
+ <rect x="40" y="20" width="10" height="10" class="cell"/>
+ <rect x="50" y="20" width="10" height="10" class="cell"/>
+ <rect x="60" y="20" width="10" height="10" class="cell"/>
+</g>
+
+<!-- MERN -->
+<g class="word">
+  <rect x="10" y="20" width="10" height="10" class="cell"/>
+  <rect x="20" y="30" width="10" height="10" class="cell"/>
+  <rect x="30" y="40" width="10" height="10" class="cell"/>
+  <rect x="40" y="30" width="10" height="10" class="cell"/>
+  <rect x="50" y="20" width="10" height="10" class="cell"/>
+</g>
+
+</svg>
