@@ -1,0 +1,50 @@
+name: Generate Heatmap Text
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Generate SVG
+        run: |
+          mkdir -p dist
+          cat << 'EOF' > dist/heatmap.svg
+          <svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              .text {
+                font-family: monospace;
+                font-size: 60px;
+                fill: #00ff88;
+              }
+            </style>
+
+            <text x="50" y="100" class="text">
+              <animate attributeName="opacity" values="1;0;1" dur="6s" repeatCount="indefinite"/>
+              KRITIKA
+            </text>
+
+            <text x="50" y="100" class="text">
+              <animate attributeName="opacity" values="0;1;0" dur="6s" begin="2s" repeatCount="indefinite"/>
+              FULLSTACK
+            </text>
+
+            <text x="50" y="100" class="text">
+              <animate attributeName="opacity" values="0;1;0" dur="6s" begin="4s" repeatCount="indefinite"/>
+              MERN
+            </text>
+          </svg>
+          EOF
+
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: output
+          build_dir: dist
